@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ClockView">
+        <attr name="dialColor" format="color" />
+        <attr name="dialFrameColor" format="color" />
+        <attr name="numbersColor" format="color" />
+        <attr name="dividersColor" format="color" />
+        <attr name="hourHandColor" format="color" />
+        <attr name="minuteHandColor" format="color" />
+        <attr name="secondHandColor" format="color" />
+        
+        <attr name="dialFrameIsVisible" format="boolean"/>
+        <attr name="numbersIsVisible" format="boolean"/>
+        <attr name="hourHandIsVisible" format="boolean"/>
+        <attr name="minuteHandIsVisible" format="boolean"/>
+        <attr name="secondHandIsVisible" format="boolean"/>
+
+        <attr name="timeZone" format="string"/>
+
+        <attr name="dividersType" format="string"/>
+    </declare-styleable>
+</resources>
