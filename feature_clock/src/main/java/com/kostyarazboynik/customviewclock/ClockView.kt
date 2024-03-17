@@ -17,7 +17,29 @@ import kotlin.math.cos
 import kotlin.math.min
 import kotlin.math.sin
 
-
+/**
+ * This view displays a clock which shows current time.
+ * All available attributes can be set in the code and xml file:
+ *
+ *    <com.kostyarazboynik.customviewclock.ClockView
+ *        android:id="@+id/clockView"
+ *        android:layout_height="wrap_content"
+ *        android:layout_width="wrap_content"
+ *        app:timeZone="UTC+3"
+ *        app:dividersType="NO_DIVIDERS"
+ *        app:secondHandColor="@color/red" />;
+ * or
+ *
+ *    findViewById<ClockView>(R.id.clockView).apply {
+ *        timeZone = "UTC"
+ *        dividersType = DividersType.TWELVE_MINUTES
+ *        hourHandIsVisible = false
+ *    }
+ *
+ * If you pass unsupported value of the time zone or dividersType ше will be set as default.
+ *
+ * @author KostyaRazboynik
+ */
 @SuppressWarnings("MagicNumber")
 class ClockView @JvmOverloads constructor(
     private val context: Context,
@@ -30,22 +52,74 @@ class ClockView @JvmOverloads constructor(
     private var centerY = 0.0f
     private val position: PointF = PointF(0.0f, 0.0f)
 
+    /**
+     * The color of dial, default is light gray.
+     */
     var dialColor = 0
+
+    /**
+     * The color of dial frame, default is black.
+     */
     var dialFrameColor = 0
+
+    /**
+     * The color of numbers, default is black.
+     */
     var numbersColor = 0
+
+    /**
+     * The color of dividers, default is black.
+     */
     var dividersColor = 0
+
+    /**
+     * The color of hour hand, default black.
+     */
     var hourHandColor = 0
+
+    /**
+     * The color of minute hand, default is black.
+     */
     var minuteHandColor = 0
+
+    /**
+     * The color of second hand, default is red.
+     */
     var secondHandColor = 0
 
+    /**
+     * The visibility of clock dial frame.
+     */
     var dialFrameIsVisible = true
+
+    /**
+     * The visibility of numbers in clock dial.
+     */
     var numbersIsVisible = true
+
+    /**
+     * The visibility of hour hand.
+     */
     var hourHandIsVisible = true
+
+    /**
+     * The visibility of minute hand.
+     */
     var minuteHandIsVisible = true
+
+    /**
+     * The visibility of second hand.
+     */
     var secondHandIsVisible = true
 
+    /**
+     * Holds the clock TimeZone, default is local timezone.
+     */
     var timeZone: TimeZone? = null
 
+    /**
+     * Holds type of clock dividers.
+     */
     var dividersType = DividersType.TWELVE_MINUTES
 
     init {
@@ -275,6 +349,7 @@ class ClockView @JvmOverloads constructor(
         if (secondHandIsVisible) drawSecondHand(canvas, second)
     }
 
+    // TODO: change size
     private fun drawHourHand(canvas: Canvas, hourWithMinutes: Float) {
         paintHourHand.color = hourHandColor
         paintHourHand.strokeWidth = clockRadius / 15
