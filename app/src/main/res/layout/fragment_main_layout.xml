@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <com.kostyarazboynik.customviewclock.ClockView
+        android:id="@+id/baseClockView"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/handsChange"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:text="Hands"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/dividersChange"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:text="Dividers"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/timeZoneChange"
+        android:layout_width="113dp"
+        android:layout_height="50dp"
+        android:text="TimeZone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/numbersChange"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:text="Numbers"
+        app:layout_constraintBottom_toTopOf="@id/handsChange"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/themeChange"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:text="Theme"
+        app:layout_constraintBottom_toTopOf="@id/dividersChange"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/makeDefault"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:text="Default"
+        app:layout_constraintBottom_toTopOf="@id/themeChange"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/frameChange"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:text="Frame"
+        app:layout_constraintBottom_toTopOf="@id/timeZoneChange"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

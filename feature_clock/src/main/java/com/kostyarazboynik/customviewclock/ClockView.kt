@@ -114,11 +114,21 @@ class ClockView @JvmOverloads constructor(
 
     /**
      * Holds the clock TimeZone, default is local timezone.
+     * To set via xml use "UTC" or "GMT+3 string format
      */
     var timeZone: TimeZone? = null
 
     /**
      * Holds type of clock dividers.
+     * To set via xml use one of:
+     * [
+     *     TWELVE_MINUTES,
+     *     FIFTEEN_MINUTES,
+     *     TWENTY_MINUTES,
+     *     THIRTY_MINUTES,
+     *     HOUR_DIVIDERS,
+     *     NO_DIVIDERS,
+     * ]
      */
     var dividersType = DividersType.TWELVE_MINUTES
 
@@ -140,7 +150,7 @@ class ClockView @JvmOverloads constructor(
             timeZone = try {
                 TimeZone.getTimeZone(getString(R.styleable.ClockView_timeZone))
             } catch (e: Exception) {
-                null
+                TimeZone.getDefault()
             }
         }
     }
@@ -168,6 +178,23 @@ class ClockView @JvmOverloads constructor(
                 true
             )
         }
+    }
+
+    fun makeDefault() {
+        dialColor = ContextCompat.getColor(context, R.color.light_gray)
+        dialFrameColor = ContextCompat.getColor(context, R.color.black)
+        numbersColor = ContextCompat.getColor(context, R.color.black)
+        dividersColor = ContextCompat.getColor(context, R.color.black)
+        hourHandColor = ContextCompat.getColor(context, R.color.black)
+        minuteHandColor = ContextCompat.getColor(context, R.color.black)
+        secondHandColor = ContextCompat.getColor(context, R.color.red)
+        dialFrameIsVisible = true
+        secondHandIsVisible = true
+        minuteHandIsVisible = true
+        hourHandIsVisible = true
+        numbersIsVisible = true
+        dividersType = DividersType.TWELVE_MINUTES
+        timeZone = TimeZone.getDefault()
     }
 
     private fun setUpColors() {

@@ -14,5 +14,5 @@ fun String.toDividersType(): DividersType =
     try {
         DividersType.valueOf(this.uppercase())
     } catch (e: IllegalArgumentException) {
-        DividersType.NO_DIVIDERS
+        DividersType.TWELVE_MINUTES
     }
