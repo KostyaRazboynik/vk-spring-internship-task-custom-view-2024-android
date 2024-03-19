@@ -71,7 +71,7 @@ class MainFragment : Fragment() {
     }
 
     private fun setDefaultTheme() {
-        binding.baseClockView.makeDefault()
+        binding.baseClockView.setDefaultTheme()
     }
 
     private fun setUpMakeDefaultButton() {

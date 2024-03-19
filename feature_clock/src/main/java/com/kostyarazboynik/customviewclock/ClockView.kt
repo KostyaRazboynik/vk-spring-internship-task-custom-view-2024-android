@@ -25,7 +25,7 @@ import kotlin.math.sin
  *        android:id="@+id/clockView"
  *        android:layout_height="wrap_content"
  *        android:layout_width="wrap_content"
- *        app:timeZone="UTC+3"
+ *        app:timeZone="GMT+3"
  *        app:dividersType="NO_DIVIDERS"
  *        app:secondHandColor="@color/red" />;
  * or
@@ -139,6 +139,23 @@ class ClockView @JvmOverloads constructor(
         setUpColors()
     }
 
+    fun setDefaultTheme() {
+        dialColor = ContextCompat.getColor(context, R.color.light_gray)
+        dialFrameColor = ContextCompat.getColor(context, R.color.black)
+        numbersColor = ContextCompat.getColor(context, R.color.black)
+        dividersColor = ContextCompat.getColor(context, R.color.black)
+        hourHandColor = ContextCompat.getColor(context, R.color.black)
+        minuteHandColor = ContextCompat.getColor(context, R.color.black)
+        secondHandColor = ContextCompat.getColor(context, R.color.black)
+        dialFrameIsVisible = true
+        secondHandIsVisible = true
+        minuteHandIsVisible = true
+        hourHandIsVisible = true
+        numbersIsVisible = true
+        dividersType = DividersType.TWELVE_MINUTES
+        timeZone = TimeZone.getDefault()
+    }
+
     private fun setUpDividersType() {
         context.withStyledAttributes(attrs, R.styleable.ClockView) {
             dividersType = (getString(R.styleable.ClockView_dividersType) ?: "").toDividersType()
@@ -178,23 +195,6 @@ class ClockView @JvmOverloads constructor(
                 true
             )
         }
-    }
-
-    fun makeDefault() {
-        dialColor = ContextCompat.getColor(context, R.color.light_gray)
-        dialFrameColor = ContextCompat.getColor(context, R.color.black)
-        numbersColor = ContextCompat.getColor(context, R.color.black)
-        dividersColor = ContextCompat.getColor(context, R.color.black)
-        hourHandColor = ContextCompat.getColor(context, R.color.black)
-        minuteHandColor = ContextCompat.getColor(context, R.color.black)
-        secondHandColor = ContextCompat.getColor(context, R.color.black)
-        dialFrameIsVisible = true
-        secondHandIsVisible = true
-        minuteHandIsVisible = true
-        hourHandIsVisible = true
-        numbersIsVisible = true
-        dividersType = DividersType.TWELVE_MINUTES
-        timeZone = TimeZone.getDefault()
     }
 
     private fun setUpColors() {
