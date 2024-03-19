@@ -187,7 +187,7 @@ class ClockView @JvmOverloads constructor(
         dividersColor = ContextCompat.getColor(context, R.color.black)
         hourHandColor = ContextCompat.getColor(context, R.color.black)
         minuteHandColor = ContextCompat.getColor(context, R.color.black)
-        secondHandColor = ContextCompat.getColor(context, R.color.red)
+        secondHandColor = ContextCompat.getColor(context, R.color.black)
         dialFrameIsVisible = true
         secondHandIsVisible = true
         minuteHandIsVisible = true
@@ -225,7 +225,7 @@ class ClockView @JvmOverloads constructor(
             )
             secondHandColor = getColor(
                 R.styleable.ClockView_secondHandColor,
-                ContextCompat.getColor(context, R.color.red)
+                ContextCompat.getColor(context, R.color.black)
             )
         }
     }
@@ -376,10 +376,9 @@ class ClockView @JvmOverloads constructor(
         if (secondHandIsVisible) drawSecondHand(canvas, second)
     }
 
-    // TODO: change size
     private fun drawHourHand(canvas: Canvas, hourWithMinutes: Float) {
         paintHourHand.color = hourHandColor
-        paintHourHand.strokeWidth = clockRadius / 15
+        paintHourHand.strokeWidth = clockRadius / 20
         val minOfHeightWidth = min(width, height)
         paintHourHand.setShadowLayer(
             minOfHeightWidth / 2f / 20,
